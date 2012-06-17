@@ -2,11 +2,15 @@
 
 # First parameter is a directory to be 
 
-if [ $1 ]
+if [ $2 ]
 then
-   echo Packaging directory $1
-   cd $1
-  
+   echo Packaging directory $2
+   
+   # remmember current directory  
+   olddir=$(pwd)
+
+   cd $2
+ 
    # Opening statement 
    echo "{" > manifest.json
 
@@ -40,7 +44,28 @@ then
    # Closing statement
    echo >> manifest.json
    echo "}" >> manifest.json
-    
+
+   # Packagine must be done here
+   cd $olddir  
+   
+   echo "Extracting keys from certificate"
+
+   openssl pkcs12 -in $1 -clcerts -nokeys -passin "pass:$3" -out certificate.pem 
+   openssl pkcs12 -in $1 -nocerts -out key.pem -passin "pass:$3" -passout pass:simplepassword
+
+   echo "SIGNING ITSELF"
+
+   openssl smime -binary -sign -signer certificate.pem -inkey key.pem -passin pass:simplepassword -in "$2/manifest.json" -out "$2/signature" -outform DER
+   
+   echo "Cleaning up"
+
+   rm -f certificate.pem
+   rm -f key.pem
+  
+   echo "Compressing"
+
+   zip -r out.pkpass -x '*.DS_Store' $2/*  
+
 else
-   echo FORMAT: $0 dir
+   echo FORMAT: $0 certificate.p12 path/to/package/content
 fi
