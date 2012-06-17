@@ -64,7 +64,13 @@ then
   
    echo "Compressing"
 
-   zip -r out.pkpass -x '*.DS_Store' $2/*  
+   cd $2
+
+   zip -r out.pkpass * -x *.DS_Store
+
+   cp out.pkpass "$olddir/"
+
+   rm -f out.pkpass
 
 else
    echo FORMAT: $0 certificate.p12 path/to/package/content
