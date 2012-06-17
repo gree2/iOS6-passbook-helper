@@ -66,12 +66,19 @@ then
 
    cd $2
 
-   zip -r out.pkpass * -x *.DS_Store
+   outname="out.pkpass"
+   
+   if [ $4 ] 
+    then
+     outname="$4.pkpass"
+   fi
 
-   cp out.pkpass "$olddir/"
+   zip -r $outname  * -x *.DS_Store
 
-   rm -f out.pkpass
+   cp $outname "$olddir/"
+
+   rm -f $outname
 
 else
-   echo FORMAT: $0 certificate.p12 path/to/package/content
+   echo FORMAT: $0 certificate.p12 path/to/package/content password [PackageName]
 fi
