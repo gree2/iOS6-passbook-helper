@@ -5,7 +5,7 @@ Helper scripts for passbook
 
 # pkpass.sh
 
-Script creates pass package from the directory with pass content. 
+Script creates pass package from the directory with pass content. manifest.json file is also created automatically by this script.
 Requires:
  - Directory with pass content (JSON Description of package, images, localization etc.)
  - p12 certificate to sign with. Must contain private key.
