@@ -78,7 +78,8 @@ then
    cp $outname "$olddir/"
 
    rm -f $outname
-
+   rm -f signature
+   rm -f manifest.json
 else
    echo FORMAT: $0 certificate.p12 path/to/package/content password [PackageName]
 fi

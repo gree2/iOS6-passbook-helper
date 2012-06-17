@@ -2,26 +2,28 @@
 	"passTypeIdentifier" : "pass.io.m2m.kroenke",
 	"formatVersion" : 1,
 	"serialNumber" : "123456",
+	"organizationName": "Kroenke",
+        "teamIdentifier": "74YF9NP593",
 	"eventTicket" : {
-		"primaryFields" : {
+		"primaryFields" : [ {
 			"key": "event-name",
-			"value" : "The Hectic Glow in concert",
+			"value" : "The Hectic Glow in concert"
 		},
 		{
 			"key": "venue-name",
 			"label" : "Venue",
-			"value" : "Joe\u2019s Coffee Shop",
-		}
+			"value" : "Joe\u2019s Coffee Shop"
+		} ]
 	},
 	"barcode" : {
-		"format" : PKBarcodeFormatQR,
+		"format" : "PKBarcodeFormatQR",
 		"message" : "Hello world!",
 		"messageEncoding" : "iso-8859-1"
 	},
 	"locations" : [
 		{"latitude" : 37.296, "longitude" : -122.038 },
-		{"latitude" : 37.302, "longitude" : -122.103}
-		{"altitude" : 67.0, "latitude" : 37.331, "longitude" : -122.029 },
+		{"latitude" : 37.302, "longitude" : -122.103},
+		{"altitude" : 67.0, "latitude" : 37.331, "longitude" : -122.029 }
 	],
-	"relevantDate" : "2010-02-05T09:00-08"
+	"relevantDate" : "2010-02-05T09:00-08:00"
 }
