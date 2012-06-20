@@ -10,6 +10,9 @@ then
    olddir=$(pwd)
 
    cd $2
+
+
+  rm -rf .DS_Store
  
    # Opening statement 
    echo "{" > manifest.json
@@ -72,6 +75,7 @@ then
     then
      outname="$4.pkpass"
    fi
+
 
    zip -r $outname  * -x *.DS_Store
 
