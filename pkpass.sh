@@ -58,7 +58,7 @@ then
 
    echo "SIGNING ITSELF"
 
-   openssl smime -binary -sign -signer certificate.pem -inkey key.pem -passin pass:simplepassword -in "$2/manifest.json" -out "$2/signature" -outform DER
+   openssl smime -binary -sign -certfile WWDR.pem -signer certificate.pem -inkey key.pem -passin pass:simplepassword -in "$2/manifest.json" -out "$2/signature" -outform DER
    
    echo "Cleaning up"
 
