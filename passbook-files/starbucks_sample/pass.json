@@ -1,9 +1,10 @@
 {
-	"passTypeIdentifier" : "pass.ru.nnov.nntu.firstpass",
+	"passTypeIdentifier" : "pass.com.2lemetry.exampleapp",
 	"formatVersion" : 1,
 	"serialNumber" : "123456",
 	"organizationName": "Kroenke",
         "teamIdentifier": "74YF9NP593",
+	"description": "Sample Pass for 2lemetry",
 	"eventTicket" : {
 		"primaryFields" : [ {
 			"key": "event-name",
